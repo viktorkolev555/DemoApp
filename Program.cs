@@ -1,5 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseWindowsService();
+builder.WebHost.ConfigureKestrel((context, serverOptions) =>
+{
+    var kestrelSection = context.Configuration.GetSection("Kestrel");
 
+    serverOptions.Configure(kestrelSection);
+});
 // Add services to the container.
 builder.Services.AddRazorPages();
 
