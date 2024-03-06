@@ -6,4 +6,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include=".azure\production.yml" />
+        <Content Update="**\appsettings.json" CopyToPublishDirectory="Never" CopyToOutputDirectory="Always"/>
+    </ItemGroup>
+
 </Project>
