@@ -5,6 +5,29 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
+    <!-- We recommend only using these features for release builds. -->
+    <PropertyGroup>
+
+        <!-- Configure Sentry org and project -->
+        <SentryOrg>m2m-services-wp</SentryOrg>
+        <SentryProject>demo-app</SentryProject>
+
+        <!--
+          Each of the below features are opt-in.
+          Enable the features you wish to use.
+        -->
+
+        <!-- Sends symbols to Sentry, enabling symbolication of stack traces. -->
+        <SentryUploadSymbols>true</SentryUploadSymbols>
+
+        <!-- Sends sources to Sentry, enabling display of source context. -->
+        <SentryUploadSources>true</SentryUploadSources>
+
+        <!-- If you are targeting Android, sends proguard mapping file to Sentry. -->
+        <SentryUploadAndroidProguardMapping>true</SentryUploadAndroidProguardMapping>
+
+    </PropertyGroup>
+
 
     <ItemGroup>
       <Content Include=".azure\production.yml" />
@@ -12,6 +35,7 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
+      <PackageReference Include="Sentry" Version="4.4.0" />
     </ItemGroup>
 
 </Project>
